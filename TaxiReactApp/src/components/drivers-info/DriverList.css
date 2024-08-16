@@ -1,0 +1,9 @@
+.driver-list__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;
+}

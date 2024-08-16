@@ -1,0 +1,56 @@
+.driver-card__container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+    min-width: 400px;
+}
+
+.driver-card__container:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.driver-card__info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.driver-card__info p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.driver-card__actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-verify {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-reject {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-block {
+    background-color: #ffc107;
+    color: #333;
+}

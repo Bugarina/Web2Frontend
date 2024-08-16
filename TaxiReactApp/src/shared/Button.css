@@ -37,3 +37,11 @@
     background-color: #FF570A;
     margin: 20px;
 }
+
+.mini-actions__button{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}

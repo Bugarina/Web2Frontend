@@ -1,3 +1,5 @@
+import { VerificationStatus } from "../util/constants";
+
 interface LoginResponseData {
     id: number;
     userName: string;
@@ -9,7 +11,7 @@ interface LoginResponseData {
     profilePictureUrl: string
     isBlocked: boolean
     userType: number,
-    verificationStatus: 'Pending' | 'Verified' | 'Rejected'
+    verificationStatus: VerificationStatus
 }
 
 export default LoginResponseData
