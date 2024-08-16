@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom for navigation
+import { Link, useNavigate } from "react-router-dom"; // Import Link from react-router-dom for navigation
 import Button from "../../shared/Button";
 import InputField from "../../shared/InputField";
 import LoginFormData from "../../models/LoginFormData";
 import "./LoginForm.css";
+import { login } from "../../services/AuthorizationService";
+import { UserStore } from "../../stores/UserStore";
 
 export const LoginForm = () => {
+    const navigate = useNavigate();
     const [error, setError] = useState('');
     const [formData, setFormData] = useState<LoginFormData>({
         email: '',
@@ -15,7 +18,15 @@ export const LoginForm = () => {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
-        if (!validateForm()) return;     
+        if (!validateForm()) return;
+        try{
+            const user = await login(formData)
+            UserStore.getState().setUser(user.user);
+            navigate('/home') 
+        }catch (err){
+            setFormData({ email: '', password: ''});
+            setError('Login failed. Please check your credentials and try again.');
+        }     
     };
 
     const validateForm = () => {

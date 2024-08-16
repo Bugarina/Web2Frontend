@@ -7,6 +7,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;
 }
 
 .button:hover {
@@ -15,4 +16,24 @@
 
 .login__button {
     width: 100%;
+}
+
+.update__button{
+    background-color: #FF570A;
+    border-radius: 8px;
+}
+
+.confirm__button{
+    background-color: #28a745;
+    border-radius: 8px;
+}
+
+.cancel__button{
+    background-color: #d72638;
+    border-radius: 8px;
+}
+
+.logout__button{
+    background-color: #FF570A;
+    margin: 20px;
 }

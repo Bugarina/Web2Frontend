@@ -1,0 +1,20 @@
+.landingpage__container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.landingpage__left {
+    flex: 1;
+    background-color: #12355B; /* Accent color */
+    padding: 20px;
+}
+
+.landingpage__right {
+    flex: 2;
+    padding: 20px;
+    background-color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
