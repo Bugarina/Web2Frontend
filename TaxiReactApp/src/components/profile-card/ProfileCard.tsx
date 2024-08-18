@@ -4,13 +4,14 @@ import defaultProfilePic from "../../assets/catprofile.png"
 import Button from '../../shared/Button';
 import { useNavigate } from 'react-router-dom';
 import { clearLocalStorage } from '../../util/LocalStorage';
+import dayjs from 'dayjs';
 
 export const ProfileCard = () => {
 
     const user = UserStore((state) => state.user);
     const navigate = useNavigate();
     const handleUpdate = () => {
-        console.log("Updating profile");
+        navigate('/update')
     };
 
     const handleLogout = () => {
@@ -28,7 +29,7 @@ export const ProfileCard = () => {
                 <p><span>First Name:</span> {user?.firstName}</p>
                 <p><span>Last Name:</span> {user?.lastName}</p>
                 <p><span>Email:</span> {user?.email}</p>
-                <p><span>Date of Birth:</span> {user?.dateOfBirth}</p>
+                <p><span>Date of Birth:</span> {dayjs(user?.dateOfBirth).format('YYYY-MM-DD')}</p>
                 <p><span>Address:</span> {user?.address}</p>
             </div>
             <Button
