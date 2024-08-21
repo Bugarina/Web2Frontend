@@ -1,4 +1,5 @@
 import AcceptRideFormData from "../models/AcceptRideFormData";
+import RateRideFormData from "../models/RateRideFormData";
 import RideOrderFormData from "../models/RideOrderFormData"
 import axiosApiInstance from "../util/AxiosInterceptor"
 
@@ -25,4 +26,12 @@ export const getAllDriverRides = async (driverEmail: string) => {
 
 export const getAllRides = async () => {
     return await axiosApiInstance.get(`/rides/all`);
+}
+
+export const finishRide = async (rideId: number) => {
+    return await axiosApiInstance.post(`/rides/finish/${rideId}`);
+}
+
+export const rateRide = async (data: RateRideFormData) => {
+    return await axiosApiInstance.post('/rides/rate', data);
 }

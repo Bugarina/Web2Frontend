@@ -22,6 +22,7 @@ const DriverCard: React.FC<DriverCardProps> = ({ id, userName, firstName, lastNa
         const data: DriverVerifyFormData = { DriverId: id, Status: status };
         try{
             await verifyDriver(data);
+            window.location.reload();
         }catch(err){
             console.log("oops, something went wrong")
         }
@@ -32,6 +33,7 @@ const DriverCard: React.FC<DriverCardProps> = ({ id, userName, firstName, lastNa
         const data: DriverBlockFormData = { DriverId: id, BlockStatus: blockStatus };
         try{
             await blockDriver(data);
+            window.location.reload();
         }catch(err){
             console.log("oops, something went wrong")
         }

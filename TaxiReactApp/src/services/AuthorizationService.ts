@@ -25,7 +25,6 @@ export const login = async (formData: LoginFormData) => {
 export const register = async (formData : RegisterFormData) => {
     try {
         const response = await axios.post(API_REGISTER_URL, formData);
-        console.log(response)
         return response.data; 
     } catch (error) {
         if (axios.isAxiosError(error) && error.response) {

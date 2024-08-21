@@ -34,19 +34,6 @@
     margin: 2px 0;
 }
 
-.ride-order-card__button {
-    background-color: #28a745;
-    color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.ride-order-card__button:hover {
-    background-color: #218838;
-}
-
 .ride-order-card__to-from{
     display: flex;
 }

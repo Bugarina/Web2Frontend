@@ -10,6 +10,11 @@
     font-weight: bold;
 }
 
+.button:disabled {
+    background-color: #cccccc;
+    transition: none;
+}
+
 .button:hover {
     transform: scale(1.05);
 }
@@ -45,3 +50,14 @@
     cursor: pointer;
     font-size: 0.9rem;
 }
+
+
+.ride-order-card__button {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

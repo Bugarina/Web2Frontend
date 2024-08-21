@@ -6,11 +6,19 @@ import "../login-form/LoginForm.css"
 import { Link, useNavigate } from "react-router-dom";
 import Select from 'react-select'
 import { register } from "../../services/AuthorizationService";
+import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 const options = [
   { value: 1, label: 'User' },
   { value: 2, label: 'Driver' },
 ]
+
+interface DecodedToken {
+    email: string;
+    given_name: string;
+    family_name: string;
+  }
 
 export const RegisterForm = () => {
     const navigate = useNavigate();
@@ -32,15 +40,11 @@ export const RegisterForm = () => {
     const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
         const validationErrors = validateForm();
-
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
-
         setErrors({}); 
-        console.log("REGISTERING")
-        console.log(formData)
         try{
             const response = register(formData);
             console.log(response)
@@ -49,6 +53,40 @@ export const RegisterForm = () => {
             console.log(err)
         }
     };
+
+    const handleSuccess = (response: CredentialResponse) => {
+        const token = response.credential; // This is the ID token
+    
+        if (token) {
+          try {
+            // Decode the token to get user information
+            const decodedToken = jwtDecode<DecodedToken>(token);
+            console.log(decodedToken)
+            const registerData: RegisterFormData = {
+                email: decodedToken.email,
+                userName: decodedToken.given_name + decodedToken.family_name ,
+                password: '1234',
+                firstName: decodedToken.given_name,
+                lastName: decodedToken.family_name,
+                dateOfBirth: '2000-01-01',  
+                address: 'Dunavska 57',
+                profilePicture: 'temp',
+                userType: 1,  
+                verificationStatus: 0, 
+            };
+    
+            console.log(registerData)
+            register(registerData)
+            navigate("/")
+            
+          } catch (error) {
+            console.error('Token decoding failed:', error);
+          }
+        } else {
+          console.log('No token received');
+        }
+      };
+    
 
     const validateForm = () => {
         const validationErrors: Record<string, string> = {};
@@ -194,7 +232,14 @@ export const RegisterForm = () => {
                     onClick={handleRegister}
                     className='login__button'
                 />
+                <GoogleLogin
+                    onSuccess={handleSuccess}
+                    onError={() => {
+                        console.log('Login Failed');
+                      }}
+                />
             </form>
         </div>
     );
 };
+

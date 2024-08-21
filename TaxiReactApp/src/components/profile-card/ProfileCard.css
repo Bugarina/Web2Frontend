@@ -7,17 +7,6 @@
     height: 100%;
 }
 
-.profile__image img{
-    width: 100%;
-    height: 100%;
-    max-width: 250px;
-    max-height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin-top: 3rem;
-}
-
 .profile__image {
     display: flex;
     flex-direction: column;
@@ -25,11 +14,26 @@
     margin-bottom: 1rem;
 }
 
+.profile__image img {
+    width: 200px; /* Fixed width for better control */
+    height: 200px; /* Fixed height to maintain aspect ratio */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the entire container */
+    border: 3px solid #FF570A; /* Optional: border to highlight the profile image */
+    display: block;
+    margin-bottom: 1rem; /* Space below the image */
+}
+
 .profile__image h2 {
     font-size: 34px;
     margin-bottom: 10px;
-    color: #FF570A; 
+    color: #FF570A; /* Matching color for consistency */
 }
+
+.update__button {
+    margin-top: 10px; /* Space above the button */
+}
+
 
 .profile__details {
     width: 80%;

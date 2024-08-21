@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import InputField from '../../shared/InputField';
 import Button from '../../shared/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import UpdateProfileFormData from '../../models/UpdateProfileFormData';
 import { UpdateProfile } from '../../services/UserService';
 import "../login-form/LoginForm.css"

@@ -6,13 +6,12 @@ import "./DriverList.css"
 
 const DriverList: React.FC = () => {
     const { drivers, setDrivers } = useDriverStore();
+    const fetchDrivers = async () => {
+        const response = await getAllDrivers();
+        setDrivers(response.data);
+    };
 
-    useEffect(() => {
-        const fetchDrivers = async () => {
-            const response = await getAllDrivers();
-            setDrivers(response.data);
-        };
-
+    useEffect(() => { 
         fetchDrivers();
     }, [setDrivers]);
 
